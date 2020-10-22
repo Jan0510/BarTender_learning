@@ -41,9 +41,9 @@ class myAutoPrintAppication(QWidget, Ui_Form):
         # 串口检测
         self.port_check()
         # 按钮使能初始化
-        self.bnt_enable()
-    # 按钮使能初始化
-    def bnt_enable(self):
+        self.bnt_disenable()
+    # 按钮使能初始化-禁能
+    def bnt_disenable(self):
         self.bnt_closeSerial.setEnabled(0)      # 禁能
         self.bnt_openSerial.setEnabled(0)       # 禁能
         self.bnt_connect.setEnabled(0)          # 禁能
@@ -440,7 +440,7 @@ class myAutoPrintAppication(QWidget, Ui_Form):
             self.logInfoPrint("Text = " + str(m.Text))
             self.logInfoPrint("********")
 
-    # 重写窗口关闭函数
+    # 重写app窗口关闭函数
     def closeEvent(self, event):
         reply = QMessageBox.question(self, '退出', "是否要退出程序？", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         # 如果存在标签文件被打开，则询问是否保存修改
